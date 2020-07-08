@@ -1,5 +1,5 @@
 .lighth {
-  position: absolute;
+  position: fixed;
   background-color: #000;
   height: 300px;
   perspective: 100px;
