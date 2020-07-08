@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>WRING-1</title>
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/a11y-dark.min.css">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <link rel="stylesheet" type="text/css" href="vaporwave.css">
+  </head>
+  <body>
+    <div class="container">
+      <div class="content">
+        <h1 class="header">WRING-1</h1>
+        <h2 class="header">The Web Ring Revolution</h2>
+        <p>
+          What are you waiting for?
+        </p>
+        <p>
+          HTML, or the hypertext markup language, was originally designed to enrich text with
+          certain attributes that would embellish its display within a web browser.
+        </p>
+        <p>
+          Nowadays, HTML has been enhanced by numerous technologies including CSS and
+          JavaScript.
+        </p>
+        <p>
+          HTML encapsulates the structure of a document. Using hierarchical tags, you construct
+          a tree of nodes (with optional text content) that is exposed to JavaScript as the
+          Document Object Model (DOM).
+        </p>
+        <p>
+          JavaScript is the coding language of the web. When you embed JavaScript in your
+          page via a &lt;script&gt; tag, you add the ability to execute logic as well as
+          utilize an ever-expanding catalog of web APIs
+        </p>
+        <p>
+          CSS is the presentation layer of the modern web. It stands for "Cascading Style Sheets".
+          Styles specified for a parent element will "cascade" (propagate) to its children within
+          the DOM tree. CSS also specifies selectors based on an element's attributes
+          (most commonly <code>id</code> and <code>class</code>) that can be used to further subdivide behavior.
+        </p>
+        <p>
+          Using all or just one of these technologies, you &mdash; a person with a text editor &mdash; can
+          publish content to the web or create interactive experiences.
+        </p>
+      </div>
+      <pre id="code-window">
+      </pre>
+    </div>
+    <section class="lighth">
+      <section class="lightv"></section>
+    </section>
+    <script type="text/javascript">
+      async function main() {
+        const source = await (await fetch('/')).text();
+        const codeWindow = document.getElementById('code-window');
+        codeWindow.textContent = source;
+        hljs.highlightBlock(codeWindow);
+        const height = codeWindow.scrollHeight - codeWindow.clientHeight;
+        let y = 0;
+        setInterval(() => requestAnimationFrame(() => {
+          y = (y + 0.5) % height;
+          codeWindow.scroll(0, y);
+        }), 35);
+      }
+      main();
+    </script>
+  </body>
+</html>
